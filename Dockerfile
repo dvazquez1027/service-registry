@@ -3,7 +3,7 @@ WORKDIR /tmp
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src/ src/
-RUN mvn -q package
+RUN mvn -q package -DskipTests=true
 
 FROM openjdk:11.0.9
 ARG JAVA_OPTS
